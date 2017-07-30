@@ -30,6 +30,7 @@ class EmployeeTableModel extends AbstractTableModel {
 
 	@Override
 	public String getColumnName(int col) {
+		System.out.println();
 		return columnNames[col];
 	}
 
@@ -51,9 +52,10 @@ class EmployeeTableModel extends AbstractTableModel {
 			return tempEmployee.getLastName();
 		}
 	}
-
+	/*
 	@Override
 	public Class getColumnClass(int c) {
 		return getValueAt(0, c).getClass();
 	}
+	*/
 }

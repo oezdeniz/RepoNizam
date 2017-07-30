@@ -15,6 +15,7 @@ public class Menu extends JFrame {
 
 	private JPanel contentPane;
 	EmployeeSearchApp esa;
+	RoomApp ra;
 
 	/**
 	 * Launch the application.
@@ -84,6 +85,17 @@ public class Menu extends JFrame {
 		
 		JMenu mnBookings = new JMenu("Bookings");
 		menuBar.add(mnBookings);
+		
+		JMenu mnRooms = new JMenu("Rooms");
+		menuBar.add(mnRooms);
+		
+		JMenuItem mntmManage_2 = new JMenuItem("Manage");
+		mntmManage_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ra.startRoomApp();
+			}
+		});
+		mnRooms.add(mntmManage_2);
 		
 		JMenu mnSettings = new JMenu("Settings");
 		menuBar.add(mnSettings);
