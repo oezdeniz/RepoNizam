@@ -1,6 +1,12 @@
 
 import java.util.List;
 
+/**
+ * 
+ * @author Nizam Özdemir
+ *
+ */
+
 import javax.swing.table.AbstractTableModel;
 
 class EmployeeTableModel extends AbstractTableModel {
@@ -52,6 +58,7 @@ class EmployeeTableModel extends AbstractTableModel {
 			return tempEmployee.getLastName();
 		}
 	}
+	
 	/*
 	@Override
 	public Class getColumnClass(int c) {

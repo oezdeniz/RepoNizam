@@ -3,7 +3,7 @@ import java.math.BigDecimal;
 
 /**
  * 
- * @author www.luv2code.com
+ * @author Nizam Özdemir
  *
  */
 public class Employee {

@@ -18,12 +18,11 @@ import javax.swing.JOptionPane;
 import java.util.List;
 
 
-/*
-
-import com.luv2code.jdbc.employeesearch.core.Employee;
-import com.luv2code.jdbc.employeesearch.dao.EmployeeDAO;
-
-*/
+/**
+ * 
+ * @author Nizam Özdemir
+ *
+ */
 
 public class EmployeeSearchApp extends JFrame {
 

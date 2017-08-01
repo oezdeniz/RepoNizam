@@ -18,11 +18,11 @@ import javax.swing.JOptionPane;
 import java.util.List;
 
 
-/*
-
-@Author Nizam Özdemir
-
-*/
+/**
+ * 
+ * @author Nizam Özdemir
+ *
+ */
 
 public class RoomApp extends JFrame {
 

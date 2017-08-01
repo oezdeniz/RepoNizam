@@ -17,6 +17,12 @@ import java.awt.event.ActionListener;
 import java.math.BigDecimal;
 import java.awt.event.ActionEvent;
 
+/**
+ * 
+ * @author Nizam Özdemir
+ *
+ */
+
 public class AddEmployeeDialog extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
@@ -52,6 +58,7 @@ public class AddEmployeeDialog extends JDialog {
 	/**
 	 * Create the dialog.
 	 */
+	
 	public AddEmployeeDialog() {
 		setTitle("Add Employee");
 		setBounds(730, 350, 458, 232);
@@ -136,7 +143,8 @@ public class AddEmployeeDialog extends JDialog {
 	protected BigDecimal convertStringToBigDecimal(String salaryStr) {
 
 		BigDecimal result = null;
-
+		
+		// convert String to BigDecimal
 		try {
 			double salaryDouble = Double.parseDouble(salaryStr);
 

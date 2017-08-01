@@ -1,7 +1,12 @@
 
 import java.util.List;
-
 import javax.swing.table.AbstractTableModel;
+
+/**
+ * 
+ * @author Nizam Özdemir
+ *
+ */
 
 class RoomTableModel extends AbstractTableModel {
 

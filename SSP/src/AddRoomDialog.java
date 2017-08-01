@@ -17,6 +17,12 @@ import java.awt.event.ActionListener;
 import java.math.BigDecimal;
 import java.awt.event.ActionEvent;
 
+/**
+ * 
+ * @author Nizam Özdemir
+ *
+ */
+
 public class AddRoomDialog extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
@@ -167,7 +173,7 @@ public class AddRoomDialog extends JDialog {
 	protected BigDecimal convertStringToBigDecimal(String str) {
 
 		BigDecimal result = null;
-
+		// convert String to BigDecimal
 		try {
 			double strDouble = Double.parseDouble(str);
 

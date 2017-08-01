@@ -7,26 +7,19 @@ import java.math.BigDecimal;
 
 /**
  * 
- * @author www.luv2code.com
+ * @author Nizam Özdemir
  *
  */
+
+
 public class EmployeeDAO {
 
 	private Connection myConn;
 	
 	public EmployeeDAO() throws Exception {
 		
-		// get db properties
-		
-		/*Properties props = new Properties();
-		props.load(new FileInputStream("demo.properties"));
-		
-		String user = props.getProperty("user");
-		String password = props.getProperty("password");
-		String dburl = props.getProperty("dburl");
-		
+
 		// connect to database
-		 */
         myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/sspdb","root","");
         System.out.println("Verbunden");
 		

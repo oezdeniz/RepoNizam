@@ -11,6 +11,12 @@ import javax.swing.JMenuItem;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+/**
+ * 
+ * @author Nizam Özdemir
+ *
+ */
+
 public class Menu extends JFrame {
 
 	private JPanel contentPane;
