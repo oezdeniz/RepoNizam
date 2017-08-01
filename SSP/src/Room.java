@@ -1,3 +1,4 @@
+import java.math.BigDecimal;
 
 /**
  * 
@@ -8,20 +9,20 @@ public class Room {
 
 	private String available;
 	private String available_from;
-	private int bed;
-	private int rate;
+	private BigDecimal bed;
+	private BigDecimal rate;
 	private int room_nr;
 	private String room_type;
-	private int stage;
+	private BigDecimal stage;
 
-	public Room(String available, String available_from, int bed, int rate, 
-			String room_type, int stage) {
+	public Room(String available, String available_from, BigDecimal bed, BigDecimal rate, 
+			String room_type, BigDecimal stage) {
 
 		this( 0,available, available_from, bed, rate, room_type, stage);
 	}
 	
-	public Room(int room_nr, String available, String available_from, int bed, int rate,
-			String room_type, int stage) {
+	public Room(int room_nr, String available, String available_from, BigDecimal bed, BigDecimal rate,
+			String room_type, BigDecimal stage) {
 		super();
 		this.available = available;
 		this.available_from = available_from;
@@ -48,19 +49,19 @@ public class Room {
 		this.available_from = available_from;
 	}
 
-	public int getBed() {
+	public BigDecimal getBed() {
 		return bed;
 	}
 
-	public void setBed(int bed) {
+	public void setBed(BigDecimal bed) {
 		this.bed = bed;
 	}
 
-	public int getRate() {
+	public BigDecimal getRate() {
 		return rate;
 	}
 
-	public void setRate(int rate) {
+	public void setRate(BigDecimal rate) {
 		this.rate = rate;
 	}
 
@@ -80,11 +81,11 @@ public class Room {
 		this.room_type = room_type;
 	}
 	
-	public int getStage() {
+	public BigDecimal getStage() {
 		return stage;
 	}
 
-	public void setStage(int stage) {
+	public void setStage(BigDecimal stage) {
 		this.stage = stage;
 	}
 

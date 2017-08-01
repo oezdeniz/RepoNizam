@@ -36,6 +36,7 @@ public class EmployeeSearchApp extends JFrame {
 	private EmployeeDAO employeeDAO;
 	private JPanel panel_1;
 	private JButton btnAddEmployee;
+	private JButton btnCancel;
 	
 	/**
 	 * Launch the application.
@@ -66,7 +67,7 @@ public class EmployeeSearchApp extends JFrame {
 			JOptionPane.showMessageDialog(this, "Error: " + exc, "Error", JOptionPane.ERROR_MESSAGE); 
 		}
 		
-		setTitle("Employee Search App");
+		setTitle("Employee Manager");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(500, 200, 920, 650);
 		contentPane = new JPanel();
@@ -146,6 +147,14 @@ public class EmployeeSearchApp extends JFrame {
 			}
 		});
 		panel_1.add(btnAddEmployee);
+		
+		btnCancel = new JButton("Cancel");
+		btnCancel.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
+		panel_1.add(btnCancel);
 	}
 
 	public void refreshEmployeesView() {

@@ -32,21 +32,24 @@ public class RoomDAO {
 		
 	}
 	
-	/*
-	public void addEmployee(Employee theEmployee) throws Exception {
+	
+	public void addRoom(Room theRoom) throws Exception {
 		PreparedStatement myStmt = null;
 
 		try {
 			// prepare statement
-			myStmt = myConn.prepareStatement("insert into employees"
-					+ " (first_name, last_name, email, salary)"
-					+ " values (?, ?, ?, ?)");
+			myStmt = myConn.prepareStatement("insert into room"
+					+ " (room_nr, available, available_from, bed, rate, room_type, stage)"
+					+ " values (?, ?, ?, ?, ?, ?, ?)");
 			
 			// set params
-			myStmt.setString(1, theEmployee.getFirstName());
-			myStmt.setString(2, theEmployee.getLastName());
-			myStmt.setString(3, theEmployee.getEmail());
-			myStmt.setBigDecimal(4, theEmployee.getSalary());
+			myStmt.setInt(1, theRoom.getRoomNr());
+			myStmt.setString(2, theRoom.getAvailable());
+			myStmt.setString(3, theRoom.getAvailableFrom());
+			myStmt.setBigDecimal(4, theRoom.getBed());
+			myStmt.setBigDecimal(5, theRoom.getRate());
+			myStmt.setString(6, theRoom.getRoomType());
+			myStmt.setBigDecimal(7, theRoom.getStage());
 			
 			// execute SQL
 			myStmt.executeUpdate();			
@@ -56,7 +59,7 @@ public class RoomDAO {
 		}
 		
 	}
-	*/
+	
 	
 	
 	public List<Room> getAllRooms() throws Exception {
@@ -114,10 +117,10 @@ public class RoomDAO {
 		int room_nr = myRs.getInt("room_nr");
 		String available = myRs.getString("available");
 		String available_from = myRs.getString("available_from");
-		int bed = myRs.getInt("bed");
-		int rate = myRs.getInt("rate");
+		BigDecimal bed = myRs.getBigDecimal("bed");
+		BigDecimal rate = myRs.getBigDecimal("rate");
 		String room_type = myRs.getString("room_type");
-		int stage = myRs.getInt("stage");
+		BigDecimal stage = myRs.getBigDecimal("stage");
 		
 		Room tempRoom = new Room(room_nr, available, available_from, bed, rate, room_type, stage);
 		

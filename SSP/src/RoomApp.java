@@ -33,7 +33,6 @@ public class RoomApp extends JFrame {
 	private JTable table;
 
 	private RoomDAO roomDAO;
-	private JPanel panel_1;
 	private JButton btnAddRoom;
 	
 	/**
@@ -52,115 +51,108 @@ public class RoomApp extends JFrame {
 			}
 		});
 	}
-
-	/**
-	 * Create the application.
-	 */
-	public RoomApp() {
-		
+	
+	public void getRoomDAO(){
 		// create the DAO
 		try {
 			roomDAO = new RoomDAO();
 		} catch (Exception exc) {
 			JOptionPane.showMessageDialog(this, "Error: " + exc, "Error", JOptionPane.ERROR_MESSAGE); 
 		}
+	}
+	
+	public void getRoomTable(){
+		try {
+
+			List<Room> roomList = null;
+
+			roomList = roomDAO.getAllRooms();
+			
+			
+			// create the model and update the "table"
+			RoomTableModel roomModel = new RoomTableModel(roomList);
+			
+			table.setModel(roomModel);
+			System.out.println(roomList.size());
+			
+		} catch (Exception exc) {
+			JOptionPane.showMessageDialog(RoomApp.this, "Error: " + exc, "Error", JOptionPane.ERROR_MESSAGE); 
+		}
 		
-		setTitle("Employee Search App");
+	}
+	
+	
+
+	/**
+	 * Create the application.
+	 */
+	public RoomApp() {
+		
+		setTitle("Room Manager");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(500, 200, 920, 650);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
+		contentPane.setLayout(null);
 		
 		JPanel panel = new JPanel();
+		panel.setBounds(5, 5, 892, 26);
 		FlowLayout flowLayout = (FlowLayout) panel.getLayout();
 		flowLayout.setAlignment(FlowLayout.LEFT);
-		contentPane.add(panel, BorderLayout.NORTH);
+		contentPane.add(panel);
 		
-		JLabel lblEnterRoom = new JLabel("Enter Room Nr.");
-		panel.add(lblEnterRoom);
-		
-		roomTextField = new JTextField();
-		panel.add(roomTextField);
-		roomTextField.setColumns(10);
-		
-		btnSearchRoom = new JButton("Search");
-		btnSearchRoom.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				// Get last name from the text field
-
-				// Call DAO and get employees for the Room
-
-				// If last name is empty, then get all Rooms
-
-				// Print out Rooms			
-				
-				try {
-					String room = roomTextField.getText();
-
-					List<Room> roomList = null;
-
-					roomList = roomDAO.getAllRooms();
-					
-					
-					// create the model and update the "table"
-					RoomTableModel roomModel = new RoomTableModel(roomList);
-					
-					table.setModel(roomModel);
-					System.out.println(roomList.size());
-					
-					/*
-					for (Employee temp : employees) {
-						System.out.println(temp);
-					}
-					*/
-				} catch (Exception exc) {
-					JOptionPane.showMessageDialog(RoomApp.this, "Error: " + exc, "Error", JOptionPane.ERROR_MESSAGE); 
-				}
-				
-			}
-		});
-		panel.add(btnSearchRoom);
+		JLabel lblRoom = new JLabel("Table");
+		panel.add(lblRoom);
 		
 		scrollPane = new JScrollPane();
-		contentPane.add(scrollPane, BorderLayout.CENTER);
+		scrollPane.setBounds(5, 31, 892, 516);
+		contentPane.add(scrollPane);
 		
 		table = new JTable();
 		scrollPane.setViewportView(table);
 		
-		panel_1 = new JPanel();
-		contentPane.add(panel_1, BorderLayout.SOUTH);
+		JButton cancelButton = new JButton("Cancel");
+		cancelButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				dispose();
+			}
+		});
+		cancelButton.setBounds(793, 565, 97, 25);
+		contentPane.add(cancelButton);
 		
-		/*
-		btnAddEmployee = new JButton("Add Employee");
-		btnAddEmployee.addActionListener(new ActionListener() {
+		getRoomDAO();
+		getRoomTable();
+		
+		
+		btnAddRoom = new JButton("Add Room");
+		btnAddRoom.setBounds(668, 565, 113, 25);
+		contentPane.add(btnAddRoom);
+		btnAddRoom.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// create dialog
-				AddEmployeeDialog dialog = new AddEmployeeDialog(EmployeeSearchApp.this, employeeDAO);
+				AddRoomDialog dialog = new AddRoomDialog(RoomApp.this, roomDAO);
 
 				// show dialog
 				dialog.setVisible(true);
 			}
 		});
-		panel_1.add(btnAddEmployee);
 	}
 
-	public void refreshEmployeesView() {
+	public void refreshRoomView() {
 
 		try {
-			List<Employee> employees = employeeDAO.getAllEmployees();
+			List<Room> roomList = roomDAO.getAllRooms();
 
 			// create the model and update the "table"
-			EmployeeTableModel model = new EmployeeTableModel(employees);
+			RoomTableModel model = new RoomTableModel(roomList);
 
 			table.setModel(model);
 		} catch (Exception exc) {
 			JOptionPane.showMessageDialog(this, "Error: " + exc, "Error",
 					JOptionPane.ERROR_MESSAGE);
 		}
-		*/
+		
 		
 	}
-
 }
